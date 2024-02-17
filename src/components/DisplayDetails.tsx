@@ -5,12 +5,16 @@ const DisplayDetails = ({
     detailName: string;
     detailValue: string;
 }) => {
-    return (
-        <div>
-            <span className="font-semibold">{detailName}: </span>
-            <span>{detailValue}</span>
-        </div>
-    );
+    return <>
+        {
+            detailValue ?
+            <div>
+                <span className="font-bold text-sm">{detailName}: </span>
+                <span className="text-sm">{detailValue}</span>
+            </div> 
+            : null
+        }
+    </>
 };
 
 export default DisplayDetails;
