@@ -44,21 +44,26 @@ const CharacterList = () => {
     }, [api]);
 
     return (
-        <div className="flex flex-row flex-wrap gap-4 p-4">
-            {results.map((character: Character) => (
-                <CharacterCard key={character.id} character={character} />
-            ))}
-            {info?.pages > 1 && (
-                <Pagination
-                    count={info?.pages}
-                    page={pageNo}
-                    onChange={handlePageChange}
-                    variant="outlined"
-                    color="primary"
-                    className="mx-auto mt-4"
-                />
-            )}
-        </div>
+        <>
+            <h2 className="text-center text-xl font-bold">Rick and Morty Characters</h2>
+            <div className="flex flex-row flex-wrap gap-4 p-4 justify-center">
+                {results.map((character: Character) => (
+                    <CharacterCard key={character.id} character={character} />
+                ))}
+                
+            </div>
+            {
+                info?.pages > 1 && 
+                    <Pagination
+                        count={info?.pages}
+                        page={pageNo}
+                        onChange={handlePageChange}
+                        variant="outlined"
+                        color="primary"
+                        className="mx-auto mt-4 flex justify-center"
+                    />
+            }
+        </>
     );
 };
 
